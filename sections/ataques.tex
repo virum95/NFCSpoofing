@@ -1,13 +1,22 @@
 \chapter{Ataques a sistemas NFC}\label{ch:ataques}
-En este capitulo trataremos la aproximación de nuestros ataques a los sistemas NFC por el método de skimming. Son diversas las posibilidades para realizar estos ataques pero nosotros optamos por dos, los smartphones android y microcontroladores PIC preparados expresamente para ello.
+En este capitulo trataremos la aproximación de nuestros ataques a los sistemas NFC por el método de skimming. Son diversas las posibilidades para realizar estos ataques pero nosotros optamos por dos, los smartphones Android y microcontroladores PIC preparados expresamente para ello.
+\clearpage
 
-\section{Smartphones android}
+\section{Smartphones Android}
+Los teléfonos Android con su tecnología NFC, son sin duda un muy buena plataforma para explotar las debilidades que hemos comentado. Nosotros hemos utilizado un \textit{Samsung Galaxy S6} para realizar todas las pruebas.
 
+\subsection{Aplicación Android}
+Ante la imposibilidad de desofuscar una aplicación ya creada y modificarla a nuestro antojo, decidimos tomar el camino de crear nuestra propia aplicación. Nos servimos de AndroidStudio y de la API de Android para crearla.\\
+Nuestro objetivo era ser capaces de guardar los diferentes tags de las tarjetas NFC en el móvil y ser capaces de reproducirlo a nuestro antojo.\\
+La funcionalidad de nuestra aplicación es bastante simple, lee la tarjeta NFC, la guarda en una base de datos y escribir el ID a una tarjeta en blanco.\\
+La aplicación consta de una interfaz en la que hay un botón. En cuanto se lee la tarjeta, se almacena en la base de datos y se muestra el código hexadecimal y decimal. Para escribir, la aplicación detecta automáticamente una tarjeta en blanco que se le aproxima y muestra como botones todos los tags en la base de datos. Al seleccionar uno de los botones, se termina el proceso de clonado.
+
+\subsection{Problemas}
+Android no soporta la emulación de tarjetas ni la programación a bajo nivel del NFC. Por lo tanto, nos decantamos porque la aplicación escribiera a una tarjeta NFC el contenido de la tarjeta objetivo. Sin embargo, no contamos con una tarjeta en blanco para hacer demostraciones físicas, pero la funcionalidad esta implantada.
 
 \section{Microcontroladores PIC}
-En esta seccion hablaremos sobre los microcontroladores PIC preparados para vulnerar las seguridades de NFC.
+En esta sección hablaremos sobre los microcontroladores PIC preparados para vulnerar las seguridades de NFC.
 	\subsection{Explicación}
 		Estas placas de microcontroladores PIC...
 	
 	\subsection{Usos}
-		
